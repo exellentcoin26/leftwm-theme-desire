@@ -27,11 +27,6 @@ if [ -x "$(command -v dunst)" ]; then
   dunst -config ~/.config/dunst/dunstrc &
 fi
 
-#include desire.conf to kitty file, and make a symlink.
-ln -s $SCRIPTPATH/kitty/desire.conf $HOME/.config/kitty
-cd $HOME/.config/kitty
-echo "include ./desire.conf" >> kitty.conf
-
 #boot a polybar for each monitor
 cd ${SCRIPTPATH}/polybar
 polybar -m | sed s/:.*// | tac | while read -r monitor
